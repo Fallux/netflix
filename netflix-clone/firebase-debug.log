@@ -23,3 +23,9 @@ Before we get started, keep in mind:
 
   * You are currently outside your home directory
 
+[debug] [2022-03-25T15:06:47.807Z] Error: kill ENOSYS
+    at process.kill (node:internal/process/per_thread:215:13)
+    at process.listener (C:\Users\Gebruiker\AppData\Roaming\nvm\v17.1.0\node_modules\firebase-tools\node_modules\signal-exit\index.js:95:15)
+    at process.emit (node:events:390:28)
+[error] 
+[error] Error: An unexpected error has occurred.
