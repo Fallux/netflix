@@ -1,0 +1,24 @@
+.row__posters{
+    display: flex;
+    /* y is verticaal en x is horizontaal */
+    overflow-y: hidden; 
+    overflow-x: scroll;
+    padding: 20px;
+}
+/*spcefiek de scrolbar opnoemen*/
+.row__posters::-webkit-scrollbar{
+    display: none;
+}
+
+.row__poster{
+    object-fit: contain;
+    width: 100%;
+    max-height: 100px;
+    margin-right: 10px;
+    /* dit veranderd formaat maar met een trage effect. dan krijg je geen blokkige vergroting */
+    transition: transform 450ms;
+}
+
+.row__poster:hover {
+    transform: scale(1.08);
+}
