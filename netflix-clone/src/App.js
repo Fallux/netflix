@@ -6,8 +6,13 @@ import requests from './requests';
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
-      <Row title="NETFLIX ORIGINALS" fetchUrl={requests.fetchNetflixOriginals} /> 
+      {/* nav */}
+      {/* title/main image */}
+      <Row 
+      title="NETFLIX ORIGINALS" 
+      fetchUrl={requests.fetchNetflixOriginals} 
+      isLargeRow={true} //eigenlijk hoeft {true} niet erbij omdat je de functie al hebt bijgeroepen maar het is wel duidelijker
+      /> 
       <Row title="Trending Now" fetchUrl={requests.fetchTrending} /> 
       <Row title="Top Rated" fetchUrl={requests.fetchTopRated} /> 
       <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} /> 
