@@ -1,10 +1,20 @@
+// gebasseerd op deze tutorial: https://www.youtube.com/watch?v=XtMThy8QKqU
 import React, { useState, useEffect } from 'react';
 import axios from './axios';
 import "./Row.css";
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
+//trailers toevoegen niet gelukt door upgraded webpack v5 (zie screenshot)
+// bronnen die ik heb geprobeerd om de errors weg te krijgen
+// polyfill error:
+//https://blog.alchemy.com/blog/how-to-polyfill-node-core-modules-in-webpack-5
+//https://stackoverflow.com/questions/64557638/how-to-polyfill-node-core-modules-in-webpack-5
+//https://webpack.js.org/migrate/5/#clean-up-configuration
 
-const base_url = "https://image.tmdb.org/t/p/original/";
+// console.log error:
+//https://stackoverflow.com/questions/68676372/typeerror-cb-is-not-a-function-in-nodejs
+
+const base_url = "https://image.tmdb.org/t/p/original/"; // API met een database van alle film gegevens
 
 function Row({ title, fetchUrl, isLargeRow }) {
     const [movies, setMovies] = useState([]);
@@ -14,7 +24,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
     //snippet of code die rund op een specifieke cindition/varaible
     useEffect(() => {
         //hier gaan we de informatie van de film feeding
-        // if [], run once when the row loads, and dont run again
+        // if [], voer één keer uit wanneer de rij wordt geladen en voer het niet opnieuw uit
         async function fetchData() {
             const request = await axios.get(fetchUrl)
             console.log(request.data.results);
@@ -25,6 +35,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
     }, [fetchUrl]);
 
     // console.table(movies);
+    //film trailer formaat en dat de trailer automatisch afspeelt 
     const opts = {
         height: "390",
         width: "100%",
@@ -41,7 +52,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
           movieTrailer(movie?.name || "")
           .then((url) => {
             // https://www.youtube.com/watch?v=XtMThy8QKqU we gaan de code wat achter de 'v' staat want dat is het ID data
-            const urlParams = new URLSearchParams (new URL(url).search);
+            const urlParams = new URLSearchParams (new URL(url).search); //newURL zit in een wrap
             setTrailerUrl(urlParams.get("v"));
           })
           .catch((error) => console.log(error));
@@ -58,6 +69,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
                 {movies.map((movie) => (
                     <img
                         key={movie.id} //het scrollen gaat iets sneller
+                        //als je op het plaatje klikt zou de trailer moeten afspelen X
                         onClick={() => handleClick(movie)}
                         className={`row__poster ${isLargeRow && "row__posterLarge"}`}
                         src={`${base_url}${

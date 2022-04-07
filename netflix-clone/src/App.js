@@ -16,6 +16,7 @@ function App() {
         fetchUrl={requests.fetchNetflixOriginals} 
         isLargeRow={true} //eigenlijk hoeft {true} niet erbij omdat je de functie al hebt bijgeroepen maar het is wel duidelijker
       /> 
+      {/* pakt de url link van het specifieke db kolom uit Requests  */}
       <Row title="Trending Now" fetchUrl={requests.fetchTrending} /> 
       <Row title="Top Rated" fetchUrl={requests.fetchTopRated} /> 
       <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} /> 

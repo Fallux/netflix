@@ -1,5 +1,5 @@
 const API_KEY = "a94379f9c80dfa8600c6394dac366595";
-
+// variable van de soorten filmreeks vastleggen en de juiste api key en film reeks key oppakken
 const requests = {
     fetchTrending:`/trending/all/week?api_key=${API_KEY}&language=en-US`,
     fetchNetflixOriginals:`/discover/tv?api_key=${API_KEY}&with_networks=213`,

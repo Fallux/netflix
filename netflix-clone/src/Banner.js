@@ -20,7 +20,7 @@ function Banner() {
     }, []);
 
     console.log(movie);
-
+    // Dat je bij sommige omschrijvingen een... krijgt omdat het dan te lange informatie op de banner staat
     function truncate(str, n) {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
     };
@@ -47,11 +47,12 @@ function Banner() {
                     <button className='banner_Button'>Play</button>   
                     {/* {myList Button} */}
                     <button className='banner_Button'>My list</button>
-                    {/* {infoButton} */}
+                    {/* {infoButton} (idee hier was om een functionele omschrijving knop te krijgen X)*/}
                     {/* <button className='banner_Button'>Info</button> */}
                 </div>
 
                 <h2 className='banner_description'>
+                    {/* {maximum karakters = 150} */}
                     {truncate(movie?.overview, 150)}
                 </h2>
                 {/* {trailerPlayer} */}

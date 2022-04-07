@@ -3,7 +3,7 @@ import "./Nav.css";
 
 function Nav() {
     const [show, handleShow] = useState(false);
-
+    //animatie navbar als je naar beneden scrolt
     useEffect(() => {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 100) {
@@ -16,7 +16,7 @@ function Nav() {
     }, []);
 
     return (
-      <div className={`nav ${show && "nav_black"}`}>
+      <div className={`nav ${show && "nav_black"}`}> {/*Laat eerst de logo zelf zien en DAN pas het zwarte blok als je scrollt */}
           <img
             className='nav_logo'
             src='https://www.edigitalagency.com.au/wp-content/uploads/netflix-logo-png-large.png'
