@@ -1,7 +1,12 @@
 import React, { useEffect, useState} from 'react'
 import axios from './axios';
 import requests from './requests';
+// import InfoBlock from './InfoBlock';
+import "./InfoBlock.css"
 import "./Banner.css"
+import { render } from 'react-dom';
+
+// const InfoBlockPage = <InfoBlock />
 
 function Banner() {
     const [movie, setMovie] = useState([]);
@@ -25,6 +30,11 @@ function Banner() {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
     };
 
+
+    render() {
+        const mystyle = {
+            display: 'hide',
+        };
     return (
         <header className='banner'
             style={{
@@ -48,7 +58,8 @@ function Banner() {
                     {/* {myList Button} */}
                     <button className='banner_Button'>My list</button>
                     {/* {infoButton} (idee hier was om een functionele omschrijving knop te krijgen X)*/}
-                    {/* <button className='banner_Button'>Info</button> */}
+                    <button className='banner_Button'>Info</button>
+                    <div className='infoBlockContainer' style={mystyle}>{movie?.overview}</div>
                 </div>
 
                 <h2 className='banner_description'>
@@ -60,7 +71,8 @@ function Banner() {
                 <div className='banner--fadeBottom'></div>
             </div>
         </header>
-    )
+    );
+    }
 }
 
 export default Banner

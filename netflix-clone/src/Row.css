@@ -22,13 +22,12 @@
     /* dit veranderd formaat maar met een trage effect. dan krijg je geen blokkige vergroting */
     transition: transform 450ms;
 }
-.row__posterLarge{
-   max-height: 250px;
-}
-
 .row__poster:hover {
     transform: scale(1.08);
 }
+.row__posterLarge{
+    max-height: 250px;
+ }
 .row__posterLarge:hover {
     transform: scale(1.09);
 }

@@ -34,8 +34,8 @@ function Row({ title, fetchUrl, isLargeRow }) {
         fetchData();
     }, [fetchUrl]);
 
-    // console.table(movies);
-    //film trailer formaat en dat de trailer automatisch afspeelt 
+    console.table(movies);
+    // film trailer formaat en dat de trailer automatisch afspeelt 
     const opts = {
         height: "390",
         width: "100%",
@@ -78,8 +78,8 @@ function Row({ title, fetchUrl, isLargeRow }) {
                 ))}
             </div>
             {/* dit was een test */}
-            {/* <YouTube videoId="XtMThy8QKqU" opts={opts} /> */}
-            {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+            <YouTube videoId="XtMThy8QKqU" opts={opts} />
+            {/* {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />} */}
         </div>
     )
 }

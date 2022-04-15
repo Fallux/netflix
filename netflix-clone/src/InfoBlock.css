@@ -1,0 +1,10 @@
+.infoBlockContainer{
+    background-color: black;
+    width: 20%;
+    height: 8vmin;
+    color: white;
+}
+
+.DescriptionInfoBlock {
+    background-color: red;
+}
