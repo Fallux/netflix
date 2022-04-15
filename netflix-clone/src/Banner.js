@@ -4,17 +4,19 @@ import requests from './requests';
 // import InfoBlock from './InfoBlock';
 import "./InfoBlock.css"
 import "./Banner.css"
-import { render } from 'react-dom';
 
 // const InfoBlockPage = <InfoBlock />
 
 function Banner() {
+        //variabel= movie//functie = setMovie
     const [movie, setMovie] = useState([]);
-
+    const [isShow, setIsShow] = React.useState(false);
     useEffect(() => {
         async function fetchData() {
+            //pak de Netflix original van de database
             const request = await axios.get(requests.fetchNetflixOriginals);
             setMovie(
+                //functie random netflix data
                 request.data.results[
                     Math.floor(Math.random() * request.data.results.length - 1)
                 ]
@@ -30,11 +32,10 @@ function Banner() {
         return str?.length > n ? str.substr(0, n - 1) + "..." : str;
     };
 
+    
+    const displayInfo = () => setIsShow((prev) => !prev);
+   
 
-    render() {
-        const mystyle = {
-            display: 'hide',
-        };
     return (
         <header className='banner'
             style={{
@@ -59,20 +60,21 @@ function Banner() {
                     <button className='banner_Button'>My list</button>
                     {/* {infoButton} (idee hier was om een functionele omschrijving knop te krijgen X)*/}
                     <button className='banner_Button'>Info</button>
-                    <div className='infoBlockContainer' style={mystyle}>{movie?.overview}</div>
+                    <div className={isShow ? "show" : "hide"}>my toggling component</div>
+                    <button onClick={displayInfo}>toggle show</button>
+                    <div className='infoBlockContainer'></div>
                 </div>
 
                 <h2 className='banner_description'>
                     {/* {maximum karakters = 150} */}
                     {truncate(movie?.overview, 150)}
                 </h2>
-                {/* {trailerPlayer} */}
-
+                {/* {trailerPlayer} idee*/}
+                {/* banner fade onderaan */}
                 <div className='banner--fadeBottom'></div>
             </div>
         </header>
     );
-    }
 }
 
 export default Banner

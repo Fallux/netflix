@@ -68,7 +68,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
                 {/* row_poster */}
                 {movies.map((movie) => (
                     <img
-                        key={movie.id} //het scrollen gaat iets sneller
+                        key={movie.id} //het scrollen gaat iets sneller (SHIFT+Scroll)
                         //als je op het plaatje klikt zou de trailer moeten afspelen X
                         onClick={() => handleClick(movie)}
                         className={`row__poster ${isLargeRow && "row__posterLarge"}`}

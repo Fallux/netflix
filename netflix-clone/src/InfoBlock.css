@@ -3,6 +3,7 @@
     width: 20%;
     height: 8vmin;
     color: white;
+    display: none;
 }
 
 .DescriptionInfoBlock {
