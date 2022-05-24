@@ -1,4 +1,4 @@
-# netflix
+# netflix met React
 
 # Eigen idee toepassen: maak een werkend info knop van de banner
 # OPMERKINGEN: 
